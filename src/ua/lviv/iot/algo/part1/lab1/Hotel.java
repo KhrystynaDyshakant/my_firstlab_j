@@ -19,23 +19,10 @@ public class Hotel {
         }
         return instance;
     }
-    public Hotel() {
-        this.name = name;
-        this.totalRooms = totalRooms;
-        this.availableRooms = availableRooms;
-        this.rating = rating;
-    }
-    public Hotel(String name, int totalRooms, int availableRooms, int rating) {
-        this.name = name;
-        this.totalRooms = totalRooms;
-        this.availableRooms = availableRooms;
-        this.rating = rating;
-    }
+
     public void bookRoom() {
         if (availableRooms > 0) {
             availableRooms--;
-        } else {
-            System.out.println("Зменшує кількість вільних кімнат на 1");
         }
     }
     public void releaseRoom() {
@@ -47,11 +34,6 @@ public class Hotel {
     public int getBookedRoomsCount() {
         return totalRooms - availableRooms;
     }
-    @Override
-    public String toString() {
-        return "Hotel " + "name='" + name + '\'' + ", totalRooms=" + totalRooms + ", availableRooms=" + availableRooms +
-                ", rating=" + rating ;
-    }
     public static void main(String[] args) {
         Hotel hotel1 = new Hotel();
         Hotel hotel2 = new Hotel("Grand ", 100, 80, 4);
@@ -61,5 +43,12 @@ public class Hotel {
         for (Hotel hotel : hotels) {
             System.out.println(hotel.toString());
         }
+        Hotel[] hotel = hotels;
+        int i=0;
+        do{
+            System.out.println(hotel.toString());
+            }
+            while(i<hotels.length);
+        }
     }
-}
+
