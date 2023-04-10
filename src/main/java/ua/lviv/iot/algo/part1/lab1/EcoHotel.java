@@ -6,36 +6,19 @@ import lombok.*;
 @Setter
 @ToString(callSuper = true)
 public class EcoHotel extends Hotel {
-    private String name;
+
     private int gym;
     private boolean garden;
-    private int availableRooms;
-    private int rating;
-    private int totalRooms;
 
     public EcoHotel() {
         super();
 
     }
 
-
-
-    public EcoHotel(String name, int gym, boolean garden,int availableRooms, int rating,int totalRooms) {
-        super();
-        this.name = name;
+    public EcoHotel(String name, int gym, boolean garden, int availableRooms, int rating, int totalRooms) {
+        super(name,availableRooms,rating,totalRooms);
         this.gym = gym;
         this.garden = garden;
-        this.availableRooms=availableRooms;
-        this.rating=rating;
-        this.totalRooms=totalRooms;
-
-
-    }
-    public int getAvailableRooms(){
-        return availableRooms;
-    }
-    public int getRating() {
-        return rating;
     }
 
         public boolean hasGarden() {
@@ -43,19 +26,8 @@ public class EcoHotel extends Hotel {
     }
 
     public int numberOfCountGyms() {
-
         int gymCount = 0;
-
         return 1;
-    }
-
-    @Override
-    public String toString() {
-        return "EcoHotel {" +
-                " name=" + name +
-                " gym=" + gym +
-                " garden=" + garden + '\'' +
-                "} " ;
     }
 
 

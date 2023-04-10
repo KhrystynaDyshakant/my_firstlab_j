@@ -9,21 +9,19 @@ public class LuxuryHotel extends Hotel {
     private String name;
     private int numberOfSpaRooms;
     private int numberOfService;
-    private int availableRoom;
-    private int rating;
-    private int totalRooms;
+
 
     public LuxuryHotel() {
+        super();
     }
 
 
     public LuxuryHotel(String name, int numberOfSpaRooms, int numberOfService, int availableRoom, int rating,int totalRooms) {
+        super(name,availableRoom,rating,totalRooms);
         this.name = name;
         this.numberOfSpaRooms = numberOfSpaRooms;
         this.numberOfService = numberOfService;
-        this.availableRoom = availableRoom;
-        this.rating = rating;
-        this.totalRooms=totalRooms;
+
     }
 
     public int getNumberOfSpaRooms() {
@@ -31,13 +29,7 @@ public class LuxuryHotel extends Hotel {
         return 0;
     }
 
-    public int getAvailableRooms() {
-        return availableRoom;
-    }
 
-    public int getRating() {
-        return rating;
-    }
 
     public int increaseNumberOfSpaRooms() {
         this.numberOfSpaRooms += 1;
@@ -48,7 +40,7 @@ public class LuxuryHotel extends Hotel {
         this.numberOfService++;
         return 0;
     }
-    @Override
+  /*  @Override
     public String toString() {
         return "LuxuryHotel {" +
                 " name=" + name +
@@ -57,7 +49,7 @@ public class LuxuryHotel extends Hotel {
                 " numberOfSpaRooms=" + numberOfSpaRooms +
                 " numberOfService=" + numberOfService + '\'' +
                 "} " ;
-    }
+    }*/
 
 
     public String getLocation() {

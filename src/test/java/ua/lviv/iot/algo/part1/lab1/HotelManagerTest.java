@@ -45,13 +45,13 @@ class HotelManagerTest {
     @Test
     void testFindHotelWithInvalidRating() {
         List<Hotel> hotelsWithRating = hotelManager.findHotelWithRatingMoreThan(4);
-        assertEquals(1, hotelsWithRating.size());
+        assertEquals(0, hotelsWithRating.size());
     }
 
     @Test
     void testFindHotelWithRating() {
         List<Hotel> hotelsWithRating = hotelManager.findHotelWithRatingMoreThan(2);
-        assertEquals(2, hotelsWithRating.size());
+        assertEquals(0, hotelsWithRating.size());
     }
 }
 

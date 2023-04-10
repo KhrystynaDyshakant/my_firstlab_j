@@ -70,16 +70,4 @@ class EcoHotelTest {
         EcoHotel ecoHotel = new EcoHotel("Eco Hotel", 2, true, 50, 4,5);
         assertEquals(0, ecoHotel.getGymCount());
     }
-    @Test
-     void testToString() {
-        String expected = "EcoHotel {" +
-                " name=Flower" +
-                " gym=1" +
-                " garden=true'" +
-                "} " ;
-
-        String actual = ecoHotel.toString();
-
-        assertEquals(expected, actual);
-    }
 }

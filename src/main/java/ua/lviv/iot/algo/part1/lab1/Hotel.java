@@ -6,7 +6,7 @@ import lombok.*;
 //@NoArgsConstructor
 @Getter
 @Setter
-public  abstract class  Hotel {
+public abstract class Hotel {
     private String name;
     private int totalRooms;
     private int availableRooms;

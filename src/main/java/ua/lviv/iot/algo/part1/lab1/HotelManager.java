@@ -22,7 +22,7 @@ public class HotelManager {
                 filter(hotel -> hotel.getRating() > rating).
                 collect(Collectors.toList());
     }
-
+}
 
     /*public static void main(String[] args) {
         HotelManager hotelManager = new HotelManager();
@@ -51,5 +51,4 @@ public class HotelManager {
         System.out.println("Hotel with rating:");
         for (Hotel hotel : hotelWithRating) {
             System.out.println(hotel);*/
-        }
 
