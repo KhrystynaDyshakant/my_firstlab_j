@@ -1,6 +1,7 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -9,7 +10,7 @@ public class Motel extends Hotel {
     private int kilometerOfTrack;
     private String startCity;
     private String endCity;
-    private String nameOfTrack;
+    private  String nameOfTrack;
     private static Motel defaultMotel = new Motel();
 
 
@@ -21,7 +22,7 @@ public class Motel extends Hotel {
         return nameOfTrack;
     }
 
-    public int getKilometerOfTrack() {
+    public final int getKilometerOfTrack() {
         return kilometerOfTrack;
     }
 
@@ -37,16 +38,21 @@ public class Motel extends Hotel {
         this.endCity = endCity;
         this.nameOfTrack = nameOfTrack;
     }
-
-
+    ;
     public String toString() {
         return "Motel{" +
-                " nameOfTrack=" + nameOfTrack +
-                " numberOfTrack=" + numberOfTrack +
-                " kilometerOfTrack=" + kilometerOfTrack +
-                " startCity=" + startCity +
-                " endCity='" + endCity + '\'' +
-                "} " ;
+                " nameOfTrack=" + nameOfTrack + " numberOfTrack=" + numberOfTrack + " kilometerOfTrack=" +
+                kilometerOfTrack + " startCity=" + startCity + " endCity='" + endCity + '\'' + "} ";
+    }
+
+    public String getHeaders() {
+        return super.getHeaders() + ", numberOfTrack, kilometerOfTrack, startCity, endCity, nameOfTrack";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + numberOfTrack + ", " + kilometerOfTrack + ", " + startCity + ", " + endCity
+                + ", " + nameOfTrack;
+
     }
 }
 

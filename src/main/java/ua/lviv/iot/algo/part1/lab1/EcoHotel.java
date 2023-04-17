@@ -1,6 +1,8 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -16,16 +18,16 @@ public class EcoHotel extends Hotel {
     }
 
     public EcoHotel(String name, int gym, boolean garden, int availableRooms, int rating, int totalRooms) {
-        super(name,availableRooms,rating,totalRooms);
+        super(name, availableRooms, rating, totalRooms);
         this.gym = gym;
         this.garden = garden;
     }
 
-        public boolean hasGarden() {
+    public final boolean hasGarden() {
         return true;
     }
 
-    public int numberOfCountGyms() {
+    public final int numberOfCountGyms() {
         int gymCount = 0;
         return 1;
     }
@@ -35,11 +37,20 @@ public class EcoHotel extends Hotel {
         return null;
     }
 
-    public boolean getGarden() {
+    public final boolean getGarden() {
         return false;
     }
 
-    public int getGymCount() {
+    public final int getGymCount() {
         return 0;
+    }
+
+    public String getHeaders() {
+        return super.getHeaders() + ", gym, garden ";
+    }
+
+
+    public String toCSV() {
+        return super.toCSV() + "," + gym + ", " + garden;
     }
 }
