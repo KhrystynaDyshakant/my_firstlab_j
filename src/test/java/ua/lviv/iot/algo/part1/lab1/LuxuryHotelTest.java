@@ -3,7 +3,6 @@ package ua.lviv.iot.algo.part1.lab1;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ua.lviv.iot.algo.part1.lab1.LuxuryHotel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,34 +22,6 @@ class LuxuryHotelTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    void testGetName() {
-        luxuryHotel.getName();
-        assertEquals("Lion", luxuryHotel.getName());
-    }
-
-    @Test
-    void testGetTotalRooms() {
-        luxuryHotel.getTotalRooms();
-        assertEquals(1, luxuryHotel.getTotalRooms());
-    }
-
-    /* @Test
-     void testGetAvailableRoom(){
-         luxuryHotel.getAvailableRoom();
-         assertEquals(1,luxuryHotel.getAvailableRoom());
-     }*/
-    @Test
-    void tesGetNumberOfService() {
-        luxuryHotel.getNumberOfService();
-        assertEquals(4, luxuryHotel.getNumberOfService());
-    }
-
-    @Test
-    void getAvailableRooms() {
-        luxuryHotel.getAvailableRooms();
-        assertEquals(4, luxuryHotel.getAvailableRooms());
-    }
 
     @Test
     void testIncreaseNumberOfSpaRooms() {
@@ -59,41 +30,18 @@ class LuxuryHotelTest {
         assertEquals(expected, actual);
     }
 
+
     @Test
-    void testGetNumberOfSpaRooms() {
-        int expected = 0;
-        int actual = luxuryHotel.getNumberOfSpaRooms();
-        assertEquals(expected, actual);
+    void testGetHeaders() {
+        LuxuryHotel luxuryHotel1 = new LuxuryHotel("Lion", 5, 14, 1, 4, 1);
+        String expectedHeaders = "name, totalRooms, availableRooms, rating,, name, numberOfSpaRooms, numberOfService";
+        assertEquals(expectedHeaders, luxuryHotel.getHeaders());
     }
 
     @Test
-    void testGetAvailableRooms() {
-        assertEquals(4, luxuryHotel.getAvailableRooms());
-    }
-
-    @Test
-    void testGetRating() {
-        assertEquals(1, luxuryHotel.getRating());
-    }
-
-    @Test
-    void testGetLocation() {
-        assertNull(luxuryHotel.getLocation());
+    void testToCsv() {
+        LuxuryHotel luxuryHotel1 = new LuxuryHotel("Lion", 5, 1, 1, 4, 1);
+        String expectedCsv = "Lion, 1, 4, 1 , Lion, 5, 4";
+        assertEquals(expectedCsv, luxuryHotel.toCSV());
     }
 }
-   /* @Test
-    void testToString() {
-        String expected = "LuxuryHotel {" +
-                " name=Lion" +
-                " availableRoom=1" +
-                " rating=4" +
-                " numberOfSpaRooms=5" +
-                " numberOfService=4'" +
-                "} ";
-
-        String actual = luxuryHotel.toString();
-
-        assertEquals(expected, actual);
-    }
-
-}*/

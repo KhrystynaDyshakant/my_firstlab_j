@@ -1,7 +1,8 @@
 package ua.lviv.iot.algo.part1.lab1;
 
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -25,10 +26,10 @@ public class ResortHotel extends Hotel {
         this.numberPoolsForChildren = numberPoolsForChildren;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
-   
+
 
     public String getLocation() {
         return this.getName();
@@ -40,7 +41,15 @@ public class ResortHotel extends Hotel {
                 "  numberPoolsForAdults=" + numberPoolsForAdults +
                 ", numberOfRestaurants=" + numberOfRestaurants +
                 ", Name='" + name + '\'' +
-                "} " ;
+                "} ";
+    }
+
+    public String getHeaders() {
+        return super.getHeaders() + ", numberOfRestaurants, numberPoolsForAdults, numberPoolsForChildren";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + numberOfRestaurants + ", " + numberPoolsForAdults + ", " + numberPoolsForChildren;
     }
 }
 

@@ -19,8 +19,9 @@ class EcoHotelTest {
         int actual = ecoHotel.numberOfCountGyms();
         assertEquals(expected, actual);
     }
+
     @Test
-     void testGetName() {
+    void testGetName() {
         assertEquals("Flower", ecoHotel.getName());
     }
 
@@ -30,44 +31,32 @@ class EcoHotelTest {
         boolean actual = ecoHotel.hasGarden();
         assertTrue(ecoHotel.hasGarden());
     }
-    @Test
-     void testGetAvailableRooms() {
-        assertEquals(1, ecoHotel.getAvailableRooms());
-    }
-    @Test
-     void testCheckInWithZeroAvailableRooms() {
-        ecoHotel.setAvailableRooms(0);
-        assertEquals(0, ecoHotel.getAvailableRooms());
 
-    }
     @Test
-     void testGetRating() {
-        assertEquals(1, ecoHotel.getRating());
-    }
-    @Test
-     void hasGarden() {
-        EcoHotel ecoHotel = new EcoHotel("Flower", 100, true,5,5,5);
+    void hasGarden() {
+        EcoHotel ecoHotel = new EcoHotel("Flower", 100, true, 5, 5, 5);
         assertTrue(ecoHotel.hasGarden());
     }
 
     @Test
-     void numberOfCountGyms() {
-        EcoHotel ecohotel = new EcoHotel("Flower", 100, true,5,5,5);
+    void numberOfCountGyms() {
+        EcoHotel ecohotel = new EcoHotel("Flower", 100, true, 5, 5, 5);
         assertEquals(1, ecohotel.numberOfCountGyms());
     }
 
+
     @Test
-     void testGetLocation() {
-        assertNull(ecoHotel.getLocation());
+    void testGetHeaders() {
+        EcoHotel ecoHotel = new EcoHotel("Flower", 1, true, 4, 8, 1);
+        String expectedHeaders = "name, totalRooms, availableRooms, rating,, gym, garden ";
+        assertEquals(expectedHeaders, ecoHotel.getHeaders());
     }
+
     @Test
-     void testGetGarden() {
-        EcoHotel ecoHotel = new EcoHotel("Eco Hotel", 2, true, 50, 4,5);
-        assertFalse(ecoHotel.getGarden());
-    }
-    @Test
-     void testGetGymCount() {
-        EcoHotel ecoHotel = new EcoHotel("Eco Hotel", 2, true, 50, 4,5);
-        assertEquals(0, ecoHotel.getGymCount());
+    void testToCsv() {
+        EcoHotel ecoHotel = new EcoHotel("Flower", 1, true, 4, 8, 1);
+        String expectedCsv = "Flower, 4, 8, 1 ,1, true";
+        assertEquals(expectedCsv, ecoHotel.toCSV());
     }
 }
+

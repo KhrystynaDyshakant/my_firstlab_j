@@ -1,6 +1,8 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -16,8 +18,8 @@ public class LuxuryHotel extends Hotel {
     }
 
 
-    public LuxuryHotel(String name, int numberOfSpaRooms, int numberOfService, int availableRoom, int rating,int totalRooms) {
-        super(name,availableRoom,rating,totalRooms);
+    public LuxuryHotel(String name, int numberOfSpaRooms, int numberOfService, int availableRoom, int rating, int totalRooms) {
+        super(name, availableRoom, rating, totalRooms);
         this.name = name;
         this.numberOfSpaRooms = numberOfSpaRooms;
         this.numberOfService = numberOfService;
@@ -30,7 +32,6 @@ public class LuxuryHotel extends Hotel {
     }
 
 
-
     public int increaseNumberOfSpaRooms() {
         this.numberOfSpaRooms += 1;
         return 1;
@@ -40,19 +41,19 @@ public class LuxuryHotel extends Hotel {
         this.numberOfService++;
         return 0;
     }
-  /*  @Override
-    public String toString() {
-        return "LuxuryHotel {" +
-                " name=" + name +
-                " availableRoom="  + availableRoom +
-                " rating=" +  rating  +
-                " numberOfSpaRooms=" + numberOfSpaRooms +
-                " numberOfService=" + numberOfService + '\'' +
-                "} " ;
-    }*/
 
 
     public String getLocation() {
         return null;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + ", name, numberOfSpaRooms, numberOfService";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + ", " + name + ", " + numberOfSpaRooms + ", " + numberOfService;
+    }
 }
+
+

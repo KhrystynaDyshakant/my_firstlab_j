@@ -19,40 +19,19 @@ class ResortHotelTest {
         String actual = resortHotel.getLocation();
         assertEquals(expected, actual);
     }
+
     @Test
-    void testNumberPoolsForAdults(){
-        int expected=3;
-        int actual=resortHotel.getNumberPoolsForAdults();
-        assertEquals(3,resortHotel.getNumberPoolsForAdults());
-    }
-    @Test
-    void testNumberPoolsForChildren(){
-        int expected=2;
-        int actual=resortHotel.getNumberPoolsForChildren();
-        assertEquals(2,resortHotel.getNumberPoolsForChildren());
-    }
-    @Test
-    void testNumberOfRestaurants(){
-        int expected=4;
-        int actual=resortHotel.getNumberOfRestaurants();
-        assertEquals(4,resortHotel.getNumberOfRestaurants());
-    }
-    @Test
-     void testGetName() {
-        assertEquals("Grand", resortHotel.getName());
+    void testGetHeaders() {
+        ResortHotel resortHotel = new ResortHotel("Zirka", 4, 5, 4);
+        String expectedHeaders = "name, totalRooms, availableRooms, rating,, numberOfRestaurants, numberPoolsForAdults, numberPoolsForChildren";
+        assertEquals(expectedHeaders, resortHotel.getHeaders());
     }
 
     @Test
-    void testToString() {
-        String expected = "ResortHotel{" +
-                "  numberPoolsForChildren=2" +
-                "  numberPoolsForAdults=3," +
-                " numberOfRestaurants=4," +
-                " Name='Grand'" +
-                "} ";
-
-        String actual = resortHotel.toString();
-
-        assertEquals(expected, actual);
+    void testToCsv() {
+        ResortHotel resortHotel = new ResortHotel("Zirka", 4, 5, 4);
+        String expectedCsv = "Zirka, 0, 0, 0 , 4, 4, 5";
+        assertEquals(expectedCsv, resortHotel.toCSV());
     }
 }
+

@@ -1,9 +1,9 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.*;
 
-//@AllArgsConstructor
-//@NoArgsConstructor
+import lombok.Getter;
+import lombok.Setter;
+
 @Getter
 @Setter
 public abstract class Hotel {
@@ -16,15 +16,18 @@ public abstract class Hotel {
     public static Hotel getInstance() {
         return defaultHotel;
     }
-    public Hotel(){}
-    public Hotel(String name, int totalRooms, int availableRooms, int rating){
-        this.name=name;
-        this.totalRooms=totalRooms;
-        this.availableRooms=availableRooms;
-        this.rating=rating;
+
+    public Hotel() {
     }
 
-    public void bookRoom() {
+    public Hotel(String name, int totalRooms, int availableRooms, int rating) {
+        this.name = name;
+        this.totalRooms = totalRooms;
+        this.availableRooms = availableRooms;
+        this.rating = rating;
+    }
+
+    public final void bookRoom() {
         if (availableRooms > 0) {
             availableRooms--;
         } else {
@@ -32,30 +35,41 @@ public abstract class Hotel {
         }
     }
 
-    public void releaseRoom() {
+    public final void releaseRoom() {
         availableRooms++;
     }
 
-    public int getAvailableRooms() {
+    public final int getAvailableRooms() {
         return availableRooms;
     }
 
-    public int getBookedRoomsCount() {
+    public final int getBookedRoomsCount() {
         return totalRooms - availableRooms;
     }
 
     public String toString() {
-        return "Hotel " + "name='" + name + '\'' + ", totalRooms=" + totalRooms + ", availableRooms=" + availableRooms +
+        return "Hotel " + "name='" + name + '\'' + ", totalRooms=" + totalRooms + ", availableRooms=" +
+                availableRooms +
                 ", rating=" + rating;
     }
 
     public abstract String getLocation();
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
     public int getRating() {
         return rating;
     }
+
+    public String getHeaders() {
+        return "name, totalRooms, availableRooms, rating,";
+    }
+
+    public String toCSV() {
+        return getName() + ", " + getTotalRooms() + ", " + getAvailableRooms() + ", " + getRating() + " ";
+    }
 }
+
 

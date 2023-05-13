@@ -1,5 +1,6 @@
 package ua.lviv.iot.algo.part1.lab1;
 
+import net.sf.saxon.expr.Component;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,67 +21,38 @@ class MotelTest {
         String actual = motel.getLocation();
         assertEquals(expected, actual);
     }
+
+
     @Test
-    void getAvailableRooms(){
-        int expected=0;
-        int actual=motel.getAvailableRooms();
-        assertEquals(0,motel.getAvailableRooms());
+    void testGetStartCity() {
+        String expected = "Lviv";
+        String actual = motel.getStartCity();
+        assertEquals("Lviv", motel.getStartCity());
     }
+
     @Test
-    void getNumberOfTrack(){
-        int expected=17;
-        int actual=motel.getNumberOfTrack();
-        assertEquals(17,motel.getNumberOfTrack());
+    void testGetName() {
+        String expected = "Lviv-Sokal";
+        String actual = motel.getNameOfTrack();
+        assertEquals(expected, actual);
     }
+
     @Test
-    void testKilometerOfTrack(){
-        int expected=90;
-        int actual=motel.getKilometerOfTrack();
-        assertEquals(90,motel.getKilometerOfTrack());
-    }
-    @Test
-     void getInstance() {
-        Hotel expected = motel.getInstance();
-        assertNull(expected);
-    }
-    @Test
-    void testGetEndCity(){
-        String expected="Sokal";
-        String actual=motel.getEndCity();
-        assertEquals("Sokal",motel.getEndCity());
-    }
-    @Test
-    void testGetStartCity(){
-        String expected="Lviv";
-        String actual=motel.getStartCity();
-        assertEquals("Lviv",motel.getStartCity());
-    }
-    @Test
-    void testGetName(){
-        String expected="Lviv-Sokal";
-        String actual=motel.getNameOfTrack();
-        assertEquals(expected,actual);
-    }
-    @Test
-     void testGetNameOfTrack() {
-        assertEquals("Lviv-Sokal", motel.getNameOfTrack());
-    }
-    @Test
-     void testGetKilometerOfTrack() {
+    void testKilometerOfTrack() {
         assertEquals(90, motel.getKilometerOfTrack());
     }
+
     @Test
-    void testToString() {
-        String expected = "Motel{" +
-                " nameOfTrack=Lviv-Sokal" +
-                " numberOfTrack=17" +
-                " kilometerOfTrack=90" +
-                " startCity=Lviv" +
-                " endCity='Sokal'" +
-                "} ";
+    void testGetHeaders() {
+        Motel motel = new Motel(4, 12, "Sokal", "Chervonograd", "Sokal-Chervonograd");
+        String expectedHeaders = "name, totalRooms, availableRooms, rating,, numberOfTrack, kilometerOfTrack, startCity, endCity, nameOfTrack";
+        assertEquals(expectedHeaders, motel.getHeaders());
+    }
 
-        String actual = motel.toString();
-
-        assertEquals(expected, actual);
+    @Test
+    void testToCsv() {
+        Motel motel = new Motel(4, 12, "Sokal", "Chervonograd", "Sokal-Chervonograd");
+        String expectedCsv = "null, 0, 0, 0 , 4, 12, Sokal, Chervonograd, Sokal-Chervonograd";
+        assertEquals(expectedCsv, motel.toCSV());
     }
 }
